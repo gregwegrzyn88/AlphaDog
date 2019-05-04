@@ -1,2 +1,233 @@
-@import "bootstrap-sprockets";
+$navbar-default-bg: #666;
+
 @import "bootstrap";
+
+body {
+	font-family: 'Oswald', sans-serif;
+	height: 100%;
+	background-color: #333;
+	color: #fff;
+	/*box-shadow: inset 0 0 5rem rgba(0, 0, 0, .5);*/
+}
+
+a {
+	color: #888;
+}
+
+.center {
+	text-align: center;
+}
+
+.hero {
+	text-align: center;
+}
+
+.jumbotron {
+	background-image: asset-url('test.jpeg');
+	background-size: cover;
+	height: 405px;
+}
+
+.action-heading {
+	padding-top: 15px;
+	padding-bottom: 10px;
+}
+
+.marg-top {
+	margin-top: 12px;
+}
+
+.pad-top {
+	padding-top: 15px;
+}
+
+/* Nav Bar */
+#main-logo {
+	font-size: 1.6rem;
+	color: #87b4ff;
+	font-weight: bold;
+}
+
+.navbar-adjust {
+	a {
+		color: #eee;
+	}
+	background-color: #555;
+}
+
+.search-adjust {
+	margin-right: 20px;
+}
+
+#navbar-menu-adjust {
+	/** I grabbed the ccs code for this background image for the menu-bar by inspecting the bootstrap4 code for dark navbar **/
+	background-image: url("data:image/svg+xml,%3csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3e%3cpath stroke='rgba(255, 255, 255, 0.5)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+	color: rgba(255,255,255,.5);
+	border-color: rgba(255,255,255,.1);
+	outline: none;
+}
+
+.dropdown-adjust {
+	a {
+		color: #333;
+	}
+}
+
+.flash-adjust {
+	padding-top: 15px;
+	padding-botton: 15px;
+}
+
+.article-times {
+	border-top: 1px solid #eaeaea;
+	margin-top: 15px;
+	margin-bottom: 10px;
+}
+
+/* Card Show */
+.card-adjust {
+	color: #555;
+	margin-bottom: 14px;
+}
+
+.card_narrow {
+	max-width: 100rem;
+}
+
+.top-pad {
+	padding-top: 15px;
+}
+
+.card-list-header-adjust a {
+	color: #555;
+}
+
+.card-list-text-adjust {
+	padding-bottom: 10px;
+}
+
+.card-list-body-adjust {
+	margin-bottom: 10px;
+}
+
+/* Footer */
+#footer-adjust {
+	position: relative;
+	bottom: 0;
+	width: 100%;
+	height: 60px;
+	line-height: 30px;
+	background-color: #555;
+}
+
+#footer-content {
+	position: relative;
+	color: #eee;
+}
+
+#footer-content small {
+	float: left;
+}
+
+#footer-content ul {
+	float: right;
+	list-style: none;
+}
+
+#footer-content ul li {
+	float: left;
+	margin-left: 15px;
+}
+
+
+/* PAGINATION - Based on "Apple" Style */
+/* This was a bitch - Center the pagination */
+.pagination {
+	justify-content: center;
+}
+
+.apple_pagination {
+	text-align: center;
+	padding: 1rem;
+	cursor: default;
+	font-size: 1.2rem;
+}
+
+.apple_pagination a {
+	text-decoration: none;
+	color: white; 
+}
+  
+.apple_pagination a, .apple_pagination span {
+	padding: 0.2rem 0.4rem; 
+}
+
+.apple_pagination a:hover, .apple_pagination a:focus {
+	text-decoration: underline;
+	color: #87b4ff;
+}
+  
+.apple_pagination .disabled a {
+	color: #777;
+	cursor: not-allowed;
+	text-decoration: none;
+}
+  
+.apple_pagination .active a {
+	padding-top: 0;
+	font-style: normal;
+	font-weight: bold;
+	color: #87b4ff;
+	text-decoration: none;
+	background-color: #555;
+	display: inline-block;
+	width: 1.5rem;
+	height: 1.5rem;
+	cursor: not-allowed;
+	line-height: 1.4rem;
+	border-radius: 1rem;
+}
+
+.checkbox-label-adjust {
+	margin-right: 12px;
+}
+
+.checkbox-box-adjust {
+	margin-right: 8px;
+}
+
+.badge-adjust {
+	.badge-pill-adjust {
+		background-color: #87b4ff;
+	}
+	font-size: 0.9rem;
+	font-weight: normal;
+	padding: 6px 10px 8px 10px;
+	margin-right: 4px;
+}
+
+footer {
+  margin-top: 45px;
+  padding-top: 5px;
+  border-top: 1px solid #eaeaea;
+  color: #777
+}
+
+footer a:hover {
+  color: #222;
+
+}
+
+footer small {
+  float: left;
+}
+
+footer ul {
+  float: right;
+  list-style: none;
+}
+
+footer ul li {
+  float: left;
+  margin-left: 15px;
+}
