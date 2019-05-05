@@ -1,0 +1,10 @@
+<% if obj.errors.any? %>
+	<div class="alert alert-danger col-sm-8 offset-2" role="alert">
+		<h4 class="alert-heading"><%= pluralize(obj.errors.count, "error") %> occurred when trying to <%= message %> the <%= type %>:</h4>
+		<ul>
+			<% obj.errors.full_messages.each do |msg| %>
+				<li><%= msg %></li>
+			<% end %>
+		</ul>
+	</div>
+<% end %>

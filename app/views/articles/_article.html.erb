@@ -1,0 +1,20 @@
+<% object.each do |article| %>
+	<div class="card card-adjust">
+		<div class="card-header card-list-header-adjust">
+			<h4><%= link_to article.title, article_path(article) %></h4>
+		</div>
+		<div class="card-body">
+			<div class="card-text card-list-text-adjust"><%= truncate(article.description, length: 100) %></div>
+			<% if article.categories.any? %>
+				<p>Categories: <%= render article.categories %></p>
+			<% end %>
+			<div class="article-times">
+				<small>Created by: <%= article.user.username.gsub(/\w{2,}\b/) { |word| word.capitalize } if article.user %>, <%= time_ago_in_words(article.created_at) %> ago, Last Updated: <%= time_ago_in_words(article.updated_at) %> ago</small>
+			</div>
+			<% if logged_in? && (current_user == article.user || current_user.admin?) %>
+				<%= link_to "Edit this Article", edit_article_path(article), class: "btn btn-sm btn-primary" %>
+				<%= link_to "Delete this Article", article_path(article), method: :delete, data: { confirm: "Are you sure you wish to Delete this Article?"}, class: "btn btn-sm btn-danger" %>
+			<% end %>
+		</div>
+	</div>
+<% end %>
