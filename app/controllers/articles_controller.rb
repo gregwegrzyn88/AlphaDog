@@ -56,7 +56,7 @@ class ArticlesController < ApplicationController
 		end
 
 		def require_same_user
-			if !logged_in? || (current_user != @article.user)
+			if !logged_in? || (current_user != @article.user && !current_user.admin?)
 				flash[:danger] = "You are not authorised to perform that action."
 				redirect_to root_path
 			end

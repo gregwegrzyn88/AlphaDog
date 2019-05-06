@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_05_06_142727) do
+ActiveRecord::Schema.define(version: 2019_05_06_184446) do
 
   create_table "articles", force: :cascade do |t|
     t.string "title"
@@ -27,6 +27,7 @@ ActiveRecord::Schema.define(version: 2019_05_06_142727) do
     t.datetime "updated_at", null: false
     t.string "passwrod_digest"
     t.string "password_digest"
+    t.boolean "admin", default: false
   end
 
 end
