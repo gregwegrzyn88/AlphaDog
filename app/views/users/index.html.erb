@@ -1,0 +1,20 @@
+
+<h1 class="action-heading center">All Bloggers</h1>
+<div class="apple_pagination">
+	<%= will_paginate @users %>
+</div>
+<% @users.each do |user| %>
+	<div class="card text-center card-adjust w-75 mx-auto">
+		<div class="card-body">
+			<h4><%= link_to user.username.gsub(/\w{2,}\b/) { |word| word.capitalize }, user_path(user), class: "center" %></h4>
+			<div class="text-muted"><%= pluralize(user.articles.count, "article") if user.articles %></div>
+			<% if logged_in? and current_user.admin? %>
+				<div class="pad-top"><%= link_to "Delete this User", user_path(user), method: :delete, 
+								data: { confirm: "Are you sure you wish to Delete this User and ALL their Articles?"}, class: "btn btn-sm btn-danger" %></div>
+			<% end %>
+		</div>
+	</div>
+<% end %>
+<div class="apple_pagination">
+	<%= will_paginate @users %>
+</div>
