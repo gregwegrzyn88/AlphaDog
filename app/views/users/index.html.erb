@@ -1,4 +1,5 @@
 
+
 <h1 class="action-heading center">All 606 Bloggers and Ballers</h1>
 <div class="apple_pagination">
 	<%= will_paginate @users %>
@@ -6,15 +7,18 @@
 <% @users.each do |user| %>
 	<div class="card text-center card-adjust w-75 mx-auto">
 		<div class="card-body">
+			<p><%= link_to gravatar_for(user), user_path(user), class: "center" %></p>
 			<h4><%= link_to user.username.gsub(/\w{2,}\b/) { |word| word.capitalize }, user_path(user), class: "center" %></h4>
 			<div class="text-muted"><%= pluralize(user.articles.count, "article") if user.articles %></div>
-		
-				<div class="pad-top"><%= link_to "Delete this User", user_path(user), method: :delete, 
-								data: { confirm: "Are you sure you wish to Delete this User and ALL their Articles?"}, class: "btn btn-sm btn-danger" %></div>
 			
+			<div class="pad-top"><%= link_to "Delete this User", user_path(user), method: :delete, 
+								data: { confirm: "Are you sure you wish to Delete this User and ALL their Articles?"}, class: "btn btn-sm btn-danger" %></div>
+
 		</div>
 	</div>
 <% end %>
 <div class="apple_pagination">
 	<%= will_paginate @users %>
 </div>
+
+

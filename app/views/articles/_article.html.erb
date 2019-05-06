@@ -8,8 +8,10 @@
 			<div class="article-times">
 				<small>Created by: <%= article.user.username.gsub(/\w{2,}\b/) { |word| word.capitalize } if article.user %>, <%= time_ago_in_words(article.created_at) %> ago, Last Updated: <%= time_ago_in_words(article.updated_at) %> ago</small>
 			</div>
+				<% if logged_in? && (current_user == article.user) %>
 				<%= link_to "Edit this Article", edit_article_path(article), class: "btn btn-sm btn-primary" %>
 				<%= link_to "Delete this Article", article_path(article), method: :delete, data: { confirm: "Are you sure you wish to Delete this Article?"}, class: "btn btn-sm btn-danger" %>
+			<% end %>
 		</div>
 	</div>
 <% end %>

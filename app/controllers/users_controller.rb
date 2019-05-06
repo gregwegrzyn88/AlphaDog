@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
 	before_action :set_user, only: [:edit,  :update, :show, :destroy]
-	# before_action :require_same_user, only: [:edit, :update, :destroy]
+	before_action :require_same_user, only: [:edit, :update]
 	# before_action :require_admin, only: [:destroy]
 
 	def index
@@ -54,14 +54,14 @@ class UsersController < ApplicationController
 		end
 
 		def require_same_user
-			if logger || (current_user != @user && !current_user.admin?)
+			if logged_in? && current_user != @user
 				flash[:danger] = "You are not authorised to perform that action."
 				redirect_to root_path
 			end
 		end
 
 		def require_admin
-			if logger || !current_user.admin?
+			if logged_in? || !current_user.admin?
 				flash[:danger] = "You are not authorised to perform that action."
 				redirect_to root_path
 			end
