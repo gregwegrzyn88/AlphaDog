@@ -1,21 +1,8 @@
-<h1 class="center">Listing All Articles</h1>
-<p>
-  <%= link_to "Create New Article ", new_article_path, class: "btn btn-xs btn-success" %></p>	
-
-  <% @articles.each do |article|%>
-  <div class="card card-adjust bg-light">
-	  <div class="card-header card-shrink-top-margin">
-      <%= link_to article.title, article_path(article) %>
-    </div>
-    <div class="article-body">
-      <%= truncate(article.description, length: 100) %>
-      <div class="article-times">
-				<small>Created by: <%= article.user.username.gsub(/\w{2,}\b/) { |word| word.capitalize } if article.user %>, <%= time_ago_in_words(article.created_at) %> ago, Last Updated: <%= time_ago_in_words(article.updated_at) %> ago</small>
-			</div>
-    </div>
-    <div class="article-actions center">
-      <%= link_to "Edit this article", edit_article_path(article), class: "btn btn-xs btn-primary center"%>
-      <%= link_to "Delete this article", article_path(article), method: :delete, data: {confirm: "Are You Sure You Want to Delete the Article?"}, class: "btn btn-xs btn-danger"%>
-    </div>
-  </div>  
-  <%end%>
+<h1 class="action-heading center">All Articles</h1>
+<div class="apple_pagination">
+	<%= will_paginate @articles %>
+</div>
+<%= render 'article', object: @articles %>
+<div class="apple_pagination">
+	<%= will_paginate @articles %>
+</div>
