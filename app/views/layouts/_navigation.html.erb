@@ -23,6 +23,8 @@
           <%= link_to "Create New Article", new_article_path, class: "dropdown-item" %>
           <%= link_to "View Profile", user_path(current_user), class: "dropdown-item" %>
           <%= link_to "Edit Your Profile", edit_user_path(current_user), class: "dropdown-item" %>
+          <%= link_to "Delete this User", user_path(current_user), method: :delete, data: { confirm: "Are you sure you wish to Delete this User and ALL their Articles?"}, class:  "dropdown-item"%>
+				<div class="pad-top">
       </li>
         <li class="nav-item">
             <%= link_to "Logout", logout_path, method: :delete, class: "nav-link nav-link-adjust" %>
