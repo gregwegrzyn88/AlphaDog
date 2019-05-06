@@ -1,17 +1,22 @@
 <h2 class="action-heading">Title: <%= @article.title %></h2>
 
 <div class="card card-adjust bg-light">
+	<% if @article.user %>
+		<div class="card-body text-center">
+			<p>Created By:</p>
+			<p><%= link_to gravatar_for(@article.user, size: 120), user_path(@article.user), class: "center" %></p>
+			<h4><%= link_to @article.user.username.gsub(/\w{2,}\b/) { |word| word.capitalize }, user_path(@article.user), class: "center" %></h4>
+		</div>
+	<% end %>
 	<div class="card-header card-shrink-top-margin">
 		<h4>Description:</h4>
 	</div>
-    <div class="card-body">
-      <div class="card-text"><%= simple_format(@article.description) %></div>
-  </div>
-  <div class="article-actions center">
-    <%= link_to "Edit this article", edit_article_path(@article), class: "btn btn-xs btn-primary center"%>
-    <%= link_to "Delete this article", article_path(@article),
-    method: :delete, data: {confirm: "Are You Sure You Want to Delete the Article?"}, 
-    class: "btn btn-xs btn-danger"%>
-    <%= link_to "View All Articles", articles_path, class: "btn btn-xs btn-success" %>	
-  </div>
+	<div class="card-body">
+		<div class="card-text"><%= simple_format(@article.description) %></div>
+			<%= link_to "Edit this Article", edit_article_path(@article), class: "btn btn-sm btn-primary" %>
+			<%= link_to "Delete this Article", article_path(@article), method: :delete, data: { confirm: "Are you sure you wish to Delete this Article?"}, class: "btn btn-sm btn-danger" %>
+	</div>
+</div>
+<div class="top-pad">
+	<%= link_to "Return to Article Listing", articles_path %>	
 </div>
