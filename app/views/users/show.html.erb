@@ -1,0 +1,12 @@
+
+<h2 class="action-heading center"><%= "#{@user.username.gsub(/\w{2,}\b/) { |word| word.capitalize }}'s page" %></h2>
+<div class="row">
+</div>
+<h4 class="action-heading center"><%= "#{@user.username.gsub(/\w{2,}\b/) { |word| word.capitalize }}'s Articles List" %></h4>
+<div class="apple_pagination">
+	<%= will_paginate @user_articles %>
+</div>
+<%= render 'articles/article', object: @user_articles %>
+<div class="apple_pagination">
+	<%= will_paginate @user_articles %>
+</div>
