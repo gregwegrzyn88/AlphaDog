@@ -44,7 +44,7 @@ gem 'bootstrap-will_paginate', '1.0.0'
 gem 'bootsnap', '>= 1.1.0', require: false
 
 group :development, :test do
-   # Use sqlite3 as the database for Active Record
+  # Use sqlite3 as the database for Active Record
   gem 'sqlite3', '~> 1.3.6'
   # Want to user assert_template in tests
   gem 'rails-controller-testing'
