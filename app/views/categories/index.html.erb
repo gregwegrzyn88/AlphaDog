@@ -1,0 +1,22 @@
+<h2 class="action-heading center">All Categories</h2>
+<div class="apple_pagination">
+	<%= will_paginate @categories %>
+</div>
+<% @categories.each do |category| %>
+	<div class="card text-center card-adjust w-50 mx-auto">
+		<div class="card-body">
+			<h4><%= link_to category.name.gsub(/\w{2,}\b/) { |word| word.capitalize }, category_path(category), class: "center" %></h4>
+			<div class="text-muted"><%= pluralize(category.articles.count, "article") if category.articles.any? %></div>
+			<% if logged_in? && current_user.admin? %>
+				<div class="center marg-top">
+					<%= link_to "Edit Category", edit_category_path(category), class: "badge badge-primary badge-adjust" %>
+					<%= link_to "Delete Category", category_path(category), method: :delete, 
+						data: { confirm: "Are you sure you wish to Delete Category '" + category.name + "' ?"}, class: "badge badge-danger badge-adjust" %>
+				</div>
+			<% end %>
+		</div>
+	</div>
+<% end %>
+<div class="apple_pagination">
+	<%= will_paginate @categories %>
+</div>

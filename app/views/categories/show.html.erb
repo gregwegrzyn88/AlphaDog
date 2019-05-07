@@ -1,0 +1,16 @@
+<h2 class="action-heading center"><%= "Category: " + @category.name %></h2>
+<% if logged_in? && current_user.admin? %>
+	<div class="center">
+		<%= link_to "Edit Category", edit_category_path(@category), class: "badge badge-primary badge-adjust" %>
+		<%= link_to "Delete Category", category_path(@category), method: :delete, 
+				data: { confirm: "Are you sure you wish to Delete this Category?"}, class: "badge badge-danger badge-adjust" %>
+	</div>
+<% end %>
+<div class="apple_pagination">
+	<%= will_paginate @category_articles %>
+</div>
+<%= render 'articles/article', object: @category_articles %>
+<div class="apple_pagination">
+	<%= will_paginate @category_articles %>
+</div>
+<p><%= link_to "Return to Category Listing", categories_path %></p>
